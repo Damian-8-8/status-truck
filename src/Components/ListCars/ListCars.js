@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { List, Avatar } from "antd";
+import { Link } from "react-router-dom"
 import './ListCars.css';
 
 class ListCars extends Component {
@@ -20,14 +21,14 @@ class ListCars extends Component {
   render() {
     return (
       <List
-      style={{margin: "50px"}}
+      style={{marginLeft: "50px"}}
       itemLayout="horizontal"
       dataSource={this.props.listOfCars}
       renderItem={item => (
         <List.Item>
           <List.Item.Meta
             avatar={<Avatar src={`./icons/${getImgName(item.status)}.png`} />}
-            title={<a href="https://ant.design">{item.title}</a>}
+            title={<Link to="/detail" params={{ idcar: "hello" }}>{item.title}</Link>}
             description={item.description}
           />
         </List.Item>

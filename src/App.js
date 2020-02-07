@@ -1,6 +1,9 @@
 import React from 'react';
 import ListCars from './Components/ListCars';
+import DetailCar from "./Components/DetailCar";
 import './App.css';
+
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 const data = [
   {
@@ -27,7 +30,16 @@ const data = [
 
 function App() {
   return (
-    <ListCars listOfCars={data} />
+    <Router>
+      <Switch>
+        <Route exact path="/">
+          <ListCars listOfCars={data} />
+        </Route>
+        <Route name="detail" path="/:idcar">
+          <DetailCar />
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 
