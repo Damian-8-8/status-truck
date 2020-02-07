@@ -1,5 +1,5 @@
 import React from 'react';
-import { List, Avatar } from "antd";
+import ListCars from './Components/ListCars';
 import './App.css';
 
 const data = [
@@ -26,38 +26,9 @@ const data = [
 ];
 
 function App() {
-  const [imgName, setImgName] = React.useState("check-green");
   return (
-    <List
-      className="List"
-      itemLayout="horizontal"
-      dataSource={data}
-      renderItem={item => (
-        <List.Item>
-          <List.Item.Meta
-            avatar={<Avatar src={`./icons/${getImgName(item.status)}.png`} />}
-            title={<a href="https://ant.design">{item.title}</a>}
-            description={item.description}
-          />
-        </List.Item>
-      )}
-    />
+    <ListCars listOfCars={data} />
   );
-}
-
-function getImgName (status) {
-  switch (status) {
-    case 0:
-      return "stop-red"
-    case 1:
-      return "warning-yelow"
-    case 2:
-      return "check-green"
-
-    default:
-      break;
-  }
-  ;
 }
 
 export default App;
